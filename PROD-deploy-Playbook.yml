@@ -11,7 +11,7 @@
    - name: starting docker
      service: name=docker state=started
    - name: cloning the repo
-     service: repo=https://github.com/meghanabotcha/AnsibleDockerdemo.git dest=/tmp/gitrepo1
+     service: repo=https://github.com/Sonal0409/AnsibleDockerdemo.git dest=/tmp/gitrepo1
    - name: switching to the directory and building docker file
      command: chdir=/tmp/gitrepo docker build -t myadd:ansible .
    - name: creating a container
