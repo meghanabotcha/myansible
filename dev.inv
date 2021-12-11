@@ -1,5 +1,0 @@
-[QA]
-172.31.42.0 ansible_user=ec2-user
-[PROD]
-172.31.10.222 ansible_user=ec2-user
-

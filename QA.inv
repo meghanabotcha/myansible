@@ -1,0 +1,4 @@
+[QA]
+172.31.42.0 ansible_user=ec2-user
+
+
