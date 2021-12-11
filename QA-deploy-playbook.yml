@@ -15,7 +15,7 @@
   - name: starting docker
     service: name=docker state=started
   - name: cloning the repo that contains addressbook.war and docker files
-    git: repo=https://github.com/Sonal0409/AnsibleDockerdemo.git dest=/tmp/mygitrepo1
+    git: repo=https://github.com/meghanabotcha/AnsibleDockerdemo.git dest=/tmp/mygitrepo1
   - name: Switching to the directory and building docker file
     command: chdir=/tmp/mygitrepo1 docker build -t myadd:ansible .
   - name: creating container
