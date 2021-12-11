@@ -1,0 +1,2 @@
+[PROD]
+172.31.10.222 ansible_user=ec2-user
