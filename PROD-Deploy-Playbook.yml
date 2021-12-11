@@ -1,0 +1,18 @@
+---
+- hosts: PROD
+  become: true
+  become_user: root
+  tasks:
+   - name: installing git and docker
+     yum: name={{item}} state=present
+     loop:
+     - docker
+     - git
+   - name: starting docker
+     service: name=docker state=started
+   - name: cloning the repo
+     service: repo=  dest=/tmp/gitrepo1
+   - name: switching to the directory and building docker file
+     command: chdir=/tmp/gitrepo docker build -t myadd:ansible .
+   - name: creating a container
+     command: docker run -itd -P myadd:ansible
