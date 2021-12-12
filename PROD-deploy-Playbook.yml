@@ -3,16 +3,13 @@
   become: true
   become_user: root
   tasks:
-   - name: installing git and docker
-     yum: name={{item}} state=present
-     loop:
-     - docker
-     - git
-   - name: starting docker
-     service: name=docker state=started
-   - name: cloning the repo that contains addressbook.war and dockerfile
-     git: repo=https://github.com/meghanabotcha/AnsibleDockerdemo.git dest=/tmp/gitrepo1
-   - name: switching to the directory and building docker file
-     command: chdir=/tmp/gitrepo1 docker build -t myadd:ansible .
-   - name: creating a container
-     command: docker run -itd -P myadd:ansible
+  - name: install httpd
+    yum: name=httpd state=present
+  - name: start httpd
+    service: name=httpd state=started
+  - name: deploy html file
+    copy: src=index.html dest=/var/www/html
+    notify: restart httpd
+  handlers:
+  - name: restart httpd
+    service: name=httpd state=restarted
