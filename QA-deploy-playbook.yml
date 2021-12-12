@@ -13,8 +13,9 @@
     - docker
     - git
   - name: starting docker
-    service: name=docker state=startedname: cloning the repo that contains addressbook.war and docker files
-     git: repo=https://github.com/meghanabotcha/myansible.git dest=/tmp/gitrepo1
+    service: name=docker state=started
+  - name: cloning the repo that contains addressbook.war and docker files
+    git: repo=https://github.com/meghanabotcha/myansible.git dest=/tmp/gitrepo1
   - name: building docker file
     command: docker build -t myadd:ansible .
   - name: creating container
